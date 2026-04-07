@@ -16,16 +16,18 @@ jobs:
           node-version: 18
           cache: 'npm'
 
-      - name: 🏗 Setup Expo
+      - name: 🏗 Setup Expo & EAS
         uses: expo/expo-github-action@v8
         with:
           expo-version: latest
-          eas-version: latest # This ensures you use the modern builder
+          eas-version: latest
           packager: npm
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🚀 Build App
-        run: npx eas build --platform android --profile preview --non-interactive
+      - name: 🚀 Trigger EAS Build
+        # We use 'eas' directly. 
+        # Make sure 'preview' exists in your eas.json profiles!
+        run: eas build --platform android --profile preview --non-interactive --no-wait
