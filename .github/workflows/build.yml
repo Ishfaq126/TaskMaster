@@ -21,6 +21,7 @@ jobs:
         with:
           expo-version: latest
           eas-version: latest # This ensures you use the modern builder
+          packager: npm
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: 📦 Install dependencies
