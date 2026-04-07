@@ -1,2 +1,10 @@
 node_modules
 node_modules/
+node_modules/
+.expo/
+dist/
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.json
+!google-services.json
